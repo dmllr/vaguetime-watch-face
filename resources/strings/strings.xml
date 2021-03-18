@@ -1,0 +1,40 @@
+<strings>
+    <string id="AppName">Hela Watch</string>
+    
+    <string id="some">few minutes</string>
+    <string id="quarter">quarter</string>
+    <string id="half">half</string>
+    <string id="about">about</string>
+
+    <string id="exact">o\'clock</string>
+    <string id="past">past</string>
+    <string id="to">to</string>
+
+    <string id="hour_1">one</string>
+    <string id="hour_2">two</string>
+    <string id="hour_3">three</string>
+    <string id="hour_4">four</string>
+    <string id="hour_5">five</string>
+    <string id="hour_6">siz</string>
+    <string id="hour_7">seven</string>
+    <string id="hour_8">eight</string>
+    <string id="hour_9">nine</string>
+    <string id="hour_10">ten</string>
+    <string id="hour_11">eleven</string>
+    <string id="hour_12">midday</string>
+    <string id="hour_13">one</string>
+    <string id="hour_14">two</string>
+    <string id="hour_15">three</string>
+    <string id="hour_16">four</string>
+    <string id="hour_17">five</string>
+    <string id="hour_18">six</string>
+    <string id="hour_19">seven</string>
+    <string id="hour_20">eight</string>
+    <string id="hour_21">nine</string>
+    <string id="hour_22">ten</string>
+    <string id="hour_23">eleven</string>
+    <string id="hour_24">midnight</string>
+    <string id="hour_0">midnight</string>
+
+    
+</strings>
