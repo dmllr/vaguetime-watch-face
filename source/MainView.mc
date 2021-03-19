@@ -13,7 +13,17 @@ class MainView extends WatchUi.WatchFace {
         WatchUi.WatchFace.initialize();
 
 		T = new Theme();
-		timeEngine = new TimeEngine();
+
+		var deviceSettings = System.getDeviceSettings();
+		if (deviceSettings has :systemLanguage) {
+			if (deviceSettings.systemLanguage == System.LANGUAGE_RUS) {
+				timeEngine = new TimeEngineRus();
+			} else {
+				timeEngine = new TimeEngine();
+			}
+		} else {
+			timeEngine = new TimeEngine();
+		}
     }
 
     function onUpdate(dc) {
@@ -39,17 +49,20 @@ class MainView extends WatchUi.WatchFace {
 		var justify = Graphics.TEXT_JUSTIFY_CENTER + Graphics.TEXT_JUSTIFY_VCENTER;
 
 		var repr = timeEngine.time();
+		var text;
 
+		text = revealCase(WatchUi.loadResource(repr.textTop), repr);
 		dc.setColor(repr.hourOnTp? T.colorHour : T.colorMinute, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(cw, ch - (0.5 * fh), T.fontTimeText, WatchUi.loadResource(repr.textTop), justify);
+		dc.drawText(cw, ch - (0.5 * fh), T.fontTimeText, text, justify);
 		
 		if (repr.textMiddle) {
 			dc.setColor(T.colorJoin, Graphics.COLOR_TRANSPARENT);
 			dc.drawText(cw, ch, T.fontTimeText, WatchUi.loadResource(repr.textMiddle), justify);
 		}
 		
+		text = revealCase(WatchUi.loadResource(repr.textBottom), repr);
 		dc.setColor(repr.hourOnTp? T.colorMinute : T.colorHour, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(cw, ch + (0.5 * fh), T.fontTimeText, WatchUi.loadResource(repr.textBottom), justify);
+		dc.drawText(cw, ch + (0.5 * fh), T.fontTimeText, text, justify);
 
 		// fh = Toybox.Graphics.getFontHeight(T.fontTimeMinutes);
 		var hour = WatchUi.loadResource(repr.hourOnTp? repr.textBottom : repr.textTop);
@@ -57,6 +70,19 @@ class MainView extends WatchUi.WatchFace {
 		var shiftloc = dc.getTextWidthInPixels("0", T.fontTimeMinutes);
 		dc.setColor(T.colorMinute, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(cw - shift + shiftloc, ch - (1.0 * fh), T.fontTimeMinutes, ":" + repr.minute.format("%02d"), Graphics.TEXT_JUSTIFY_CENTER + Graphics.TEXT_JUSTIFY_VCENTER);
+	}
+
+	function revealCase(text, repr) {
+		var splitter = text.find("|");
+		if (splitter) {
+			if (repr.hourCase == 0) {
+				text = text.substring(0, splitter);
+			} else {
+				text = text.substring(splitter + 1, text.length());
+			}
+		}
+		
+		return text;
 	}
 
 	function setColors(dc) {

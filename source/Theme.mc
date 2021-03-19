@@ -20,5 +20,5 @@ class Theme {
         colorJoin = Graphics.COLOR_DK_GRAY;
         colorExactMinute = Graphics.COLOR_BLUE;
     }
-	
+
 }

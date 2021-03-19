@@ -1,0 +1,40 @@
+<strings>
+    <string id="AppName">Hela Watch</string>
+    
+    <string id="exact">ровно</string>
+    <string id="near">начало</string>
+    <string id="quarter">четверть</string>
+    <string id="half">половина</string>
+    <string id="quarterbefore">без четверти</string>
+    <string id="about">почти</string>
+
+    <string id="past">-</string>
+    <string id="to">-</string>
+
+    <string id="hour_1">час|первого</string>
+    <string id="hour_2">два|второго</string>
+    <string id="hour_3">три|третьего</string>
+    <string id="hour_4">четыре|четвертого</string>
+    <string id="hour_5">пять|пятого</string>
+    <string id="hour_6">шесть|шестого</string>
+    <string id="hour_7">семь|седьмого</string>
+    <string id="hour_8">восемь|восьмого</string>
+    <string id="hour_9">девять|девятого</string>
+    <string id="hour_10">десять|десятого</string>
+    <string id="hour_11">одиннадцать|одиннадцатого</string>
+    <string id="hour_12">полдень|двенадцатого</string>
+    <string id="hour_13">час|первого</string>
+    <string id="hour_14">два|второго</string>
+    <string id="hour_15">три|третьего</string>
+    <string id="hour_16">четыре|четвертого</string>
+    <string id="hour_17">пять|пятого</string>
+    <string id="hour_18">шесть|шестого</string>
+    <string id="hour_19">семь|седьмого</string>
+    <string id="hour_20">восемь|восьмого</string>
+    <string id="hour_21">девять|девятого</string>
+    <string id="hour_22">десять|десятого</string>
+    <string id="hour_23">одиннадцать|одиннадцатого</string>
+    <string id="hour_24">полночь|двенадцатого</string>
+    <string id="hour_0">полночь|двенадцатого</string>
+    
+</strings>
