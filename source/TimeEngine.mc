@@ -37,7 +37,6 @@ class TimeEngine {
             repr[2] = hour_map[nextHour];
         } else if (minute > 55) {
             repr[0] = hour_map[nextHour];
-            repr[1] = Rez.Strings.to;
             repr[2] =  Rez.Strings.exact;
         }
 

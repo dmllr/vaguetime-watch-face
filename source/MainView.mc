@@ -46,8 +46,10 @@ class MainView extends WatchUi.WatchFace {
 			dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
 			dc.drawText(cw, ch - (0.5 * fh), font, WatchUi.loadResource(repr[1]), Graphics.TEXT_JUSTIFY_CENTER);
 		}
-		dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(cw, ch - (0.0 * fh), font, WatchUi.loadResource(repr[2]), Graphics.TEXT_JUSTIFY_CENTER);
+		if (repr[2]) {
+			dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+			dc.drawText(cw, ch - (0.0 * fh), font, WatchUi.loadResource(repr[2]), Graphics.TEXT_JUSTIFY_CENTER);
+		}
 	}
 
 	function setColors(dc) {
