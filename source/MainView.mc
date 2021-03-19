@@ -65,7 +65,7 @@ class MainView extends WatchUi.WatchFace {
 		dc.drawText(cw, ch + (0.5 * fh), T.fontTimeText, text, justify);
 
 		// fh = Toybox.Graphics.getFontHeight(T.fontTimeMinutes);
-		var hour = WatchUi.loadResource(repr.hourOnTop? repr.textBottom : repr.textTop);
+		var hour = revealCase(WatchUi.loadResource(repr.hourOnTop? repr.textBottom : repr.textTop), repr);
 		var shift = dc.getTextWidthInPixels(hour, T.fontTimeText) / 2;
 		var shiftloc = dc.getTextWidthInPixels("0", T.fontTimeMinutes);
 		dc.setColor(T.colorMinute, Graphics.COLOR_TRANSPARENT);

@@ -17,8 +17,8 @@ class TimeEngineRus {
 
         if (minute < 5) {
             repr.hourCase = 0;
-            repr.textTop =  hourMap[hour];
-            repr.textBottom =  Rez.Strings.exact;
+            repr.textTop = Rez.Strings.exact;
+            repr.textBottom = hourMap[hour];
         } else if (minute >= 5 && minute < 10) {
             repr.hourCase = 1;
             repr.textTop = Rez.Strings.near;
@@ -38,8 +38,8 @@ class TimeEngineRus {
             repr.textTop = Rez.Strings.about;
             repr.textBottom = hourMap[nextHour];
         } else if (minute > 55) {
-            repr.textTop = hourMap[nextHour];
-            repr.textBottom =  Rez.Strings.exact;
+            repr.textTop = Rez.Strings.exact;
+            repr.textBottom = hourMap[nextHour];
         }
 
         return repr;
