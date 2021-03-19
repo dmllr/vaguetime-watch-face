@@ -13,7 +13,7 @@ class TimeEngineRus {
         var repr = new TimeRepresentation();
         repr.hour = hour;
         repr.minute = minute;
-        repr.hourOnTp = false;
+        repr.hourOnTop = false;
 
         if (minute < 5) {
             repr.hourCase = 0;

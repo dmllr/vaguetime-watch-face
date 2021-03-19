@@ -52,7 +52,7 @@ class MainView extends WatchUi.WatchFace {
 		var text;
 
 		text = revealCase(WatchUi.loadResource(repr.textTop), repr);
-		dc.setColor(repr.hourOnTp? T.colorHour : T.colorMinute, Graphics.COLOR_TRANSPARENT);
+		dc.setColor(repr.hourOnTop? T.colorHour : T.colorMinute, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(cw, ch - (0.5 * fh), T.fontTimeText, text, justify);
 		
 		if (repr.textMiddle) {
@@ -61,11 +61,11 @@ class MainView extends WatchUi.WatchFace {
 		}
 		
 		text = revealCase(WatchUi.loadResource(repr.textBottom), repr);
-		dc.setColor(repr.hourOnTp? T.colorMinute : T.colorHour, Graphics.COLOR_TRANSPARENT);
+		dc.setColor(repr.hourOnTop? T.colorMinute : T.colorHour, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(cw, ch + (0.5 * fh), T.fontTimeText, text, justify);
 
 		// fh = Toybox.Graphics.getFontHeight(T.fontTimeMinutes);
-		var hour = WatchUi.loadResource(repr.hourOnTp? repr.textBottom : repr.textTop);
+		var hour = WatchUi.loadResource(repr.hourOnTop? repr.textBottom : repr.textTop);
 		var shift = dc.getTextWidthInPixels(hour, T.fontTimeText) / 2;
 		var shiftloc = dc.getTextWidthInPixels("0", T.fontTimeMinutes);
 		dc.setColor(T.colorMinute, Graphics.COLOR_TRANSPARENT);

@@ -13,10 +13,10 @@ class TimeEngine {
         var repr = new TimeRepresentation();
         repr.hour = hour;
         repr.minute = minute;
-        repr.hourOnTp = false;
+        repr.hourOnTop = false;
 
         if (minute < 5) {
-            repr.hourOnTp = true;
+            repr.hourOnTop = true;
             repr.textTop =  hourMap[hour];
             repr.textBottom =  Rez.Strings.exact;
         } else if (minute >= 5 && minute < 10) {
@@ -39,7 +39,7 @@ class TimeEngine {
             repr.textTop = Rez.Strings.about;
             repr.textBottom = hourMap[nextHour];
         } else if (minute > 55) {
-            repr.hourOnTp = true;
+            repr.hourOnTop = true;
             repr.textTop = hourMap[nextHour];
             repr.textBottom =  Rez.Strings.exact;
         }

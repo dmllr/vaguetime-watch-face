@@ -7,5 +7,5 @@ class TimeRepresentation {
     var textMiddle;
     var textBottom;
 
-    var hourOnTp;
+    var hourOnTop;
 }
