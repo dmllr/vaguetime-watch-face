@@ -2,7 +2,7 @@ using Toybox.WatchUi;
 using Toybox.Graphics;
 using Toybox.System;
 
-class MainView extends WatchUi.WatchFace {
+class WatchFace extends WatchUi.WatchFace {
 	
 	var in_sleep = false;
 
