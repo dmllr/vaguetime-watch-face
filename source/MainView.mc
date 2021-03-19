@@ -40,16 +40,16 @@ class MainView extends WatchUi.WatchFace {
 
 		var repr = timeEngine.time();
 
-		dc.setColor(Graphics.COLOR_YELLOW, Graphics.COLOR_TRANSPARENT);
+		dc.setColor(repr.colorTop, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(cw, ch - (1.0 * fh), font, WatchUi.loadResource(repr.textTop), Graphics.TEXT_JUSTIFY_CENTER);
 		
 		if (repr.textMiddle) {
-			dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
+			dc.setColor(repr.colorMiddle, Graphics.COLOR_TRANSPARENT);
 			dc.drawText(cw, ch - (0.5 * fh), font, WatchUi.loadResource(repr.textMiddle), Graphics.TEXT_JUSTIFY_CENTER);
 		}
 		
 		if (repr.textBottom) {
-			dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+			dc.setColor(repr.colorBottom, Graphics.COLOR_TRANSPARENT);
 			dc.drawText(cw, ch - (0.0 * fh), font, WatchUi.loadResource(repr.textBottom), Graphics.TEXT_JUSTIFY_CENTER);
 		}
 	}
