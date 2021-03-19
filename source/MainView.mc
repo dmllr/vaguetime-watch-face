@@ -6,13 +6,13 @@ class MainView extends WatchUi.WatchFace {
 	
 	var in_sleep = false;
 
-	var fontCollection;
+	var T;
 	var timeEngine;
 
     function initialize() {
         WatchUi.WatchFace.initialize();
 
-		fontCollection = new FontCollection();
+		T = new Theme();
 		timeEngine = new TimeEngine();
     }
 
@@ -35,23 +35,26 @@ class MainView extends WatchUi.WatchFace {
 
 		var cw = System.getDeviceSettings().screenWidth  / 2;
 		var ch = System.getDeviceSettings().screenHeight / 2;
-		var font = fontCollection.fontTimeText;
-		var fh = Toybox.Graphics.getFontHeight(font);
+		var fh = Toybox.Graphics.getFontHeight(T.fontTimeText);
 
 		var repr = timeEngine.time();
 
-		dc.setColor(repr.colorTop, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(cw, ch - (1.0 * fh), font, WatchUi.loadResource(repr.textTop), Graphics.TEXT_JUSTIFY_CENTER);
+		dc.setColor(repr.hourOnTp? T.colorHour : T.colorMinute, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(cw, ch - (1.0 * fh), T.fontTimeText, WatchUi.loadResource(repr.textTop), Graphics.TEXT_JUSTIFY_CENTER);
 		
 		if (repr.textMiddle) {
-			dc.setColor(repr.colorMiddle, Graphics.COLOR_TRANSPARENT);
-			dc.drawText(cw, ch - (0.5 * fh), font, WatchUi.loadResource(repr.textMiddle), Graphics.TEXT_JUSTIFY_CENTER);
+			dc.setColor(T.colorJoin, Graphics.COLOR_TRANSPARENT);
+			dc.drawText(cw, ch - (0.5 * fh), T.fontTimeText, WatchUi.loadResource(repr.textMiddle), Graphics.TEXT_JUSTIFY_CENTER);
 		}
 		
-		if (repr.textBottom) {
-			dc.setColor(repr.colorBottom, Graphics.COLOR_TRANSPARENT);
-			dc.drawText(cw, ch - (0.0 * fh), font, WatchUi.loadResource(repr.textBottom), Graphics.TEXT_JUSTIFY_CENTER);
-		}
+		dc.setColor(repr.hourOnTp? T.colorMinute : T.colorHour, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(cw, ch - (0.0 * fh), T.fontTimeText, WatchUi.loadResource(repr.textBottom), Graphics.TEXT_JUSTIFY_CENTER);
+
+		// fh = Toybox.Graphics.getFontHeight(T.fontTimeMinutes);
+		var hour = WatchUi.loadResource(repr.hourOnTp? repr.textBottom : repr.textTop);
+		var shift = dc.getTextWidthInPixels(hour, T.fontTimeText) / 2;
+		dc.setColor(T.colorMinute, Graphics.COLOR_TRANSPARENT);
+		dc.drawText(cw + shift, ch - (0.5 * fh), T.fontTimeMinutes, ":" + repr.minute.format("%02d"), Graphics.TEXT_JUSTIFY_LEFT);
 	}
 
 	function setColors(dc) {

@@ -5,11 +5,10 @@ class TimeRepresentation {
     var minute;
 
     var textTop;
-    var colorTop;
     var textMiddle;
-    var colorMiddle;
     var textBottom;
-    var colorBottom;
+
+    var hourOnTp;
 }
 
 class TimeEngine {
@@ -22,51 +21,38 @@ class TimeEngine {
             nextHour = 0;
         }
 
-        var colorMinute = Graphics.COLOR_YELLOW;
-        var colorHour = Graphics.COLOR_WHITE;
-
         var repr = new TimeRepresentation();
         repr.hour = hour;
         repr.minute = minute;
-        repr.colorMiddle = Graphics.COLOR_DK_GRAY;
+        repr.hourOnTp = false;
 
         if (minute < 5) {
+            repr.hourOnTp = true;
             repr.textTop =  hour_map[hour];
-            repr.colorTop = colorHour;
             repr.textBottom =  Rez.Strings.exact;
-            repr.colorBottom =  colorMinute;
         } else if (minute >= 5 && minute < 10) {
             repr.textTop = Rez.Strings.some;
-            repr.colorTop = colorMinute;
             repr.textMiddle = Rez.Strings.past;
             repr.textBottom = hour_map[hour];
-            repr.colorBottom = colorHour;
         } else if (minute >= 10 && minute <= 20) {
             repr.textTop = Rez.Strings.quarter;
-            repr.colorTop = colorMinute;
             repr.textMiddle = Rez.Strings.past;
             repr.textBottom = hour_map[hour];
-            repr.colorBottom = colorHour;
         } else if (minute > 20 && minute < 40) {
             repr.textTop = Rez.Strings.half;
-            repr.colorTop = colorMinute;
             repr.textMiddle = Rez.Strings.past;
             repr.textBottom = hour_map[hour];
-            repr.colorBottom = colorHour;
         } else if (minute >= 40 && minute <= 50) {
             repr.textTop = Rez.Strings.quarter;
-            repr.colorTop = colorMinute;
             repr.textMiddle = Rez.Strings.to;
             repr.textBottom = hour_map[nextHour];
-            repr.colorBottom = colorHour;
         } else if (minute > 50 && minute <= 55) {
             repr.textTop = Rez.Strings.about;
             repr.textBottom = hour_map[nextHour];
         } else if (minute > 55) {
+            repr.hourOnTp = true;
             repr.textTop = hour_map[nextHour];
-            repr.colorTop = colorHour;
             repr.textBottom =  Rez.Strings.exact;
-            repr.colorBottom = colorMinute;
         }
 
         return repr;
