@@ -36,25 +36,27 @@ class MainView extends WatchUi.WatchFace {
 		var cw = System.getDeviceSettings().screenWidth  / 2;
 		var ch = System.getDeviceSettings().screenHeight / 2;
 		var fh = Toybox.Graphics.getFontHeight(T.fontTimeText);
+		var justify = Graphics.TEXT_JUSTIFY_CENTER + Graphics.TEXT_JUSTIFY_VCENTER;
 
 		var repr = timeEngine.time();
 
 		dc.setColor(repr.hourOnTp? T.colorHour : T.colorMinute, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(cw, ch - (1.0 * fh), T.fontTimeText, WatchUi.loadResource(repr.textTop), Graphics.TEXT_JUSTIFY_CENTER);
+		dc.drawText(cw, ch - (0.5 * fh), T.fontTimeText, WatchUi.loadResource(repr.textTop), justify);
 		
 		if (repr.textMiddle) {
 			dc.setColor(T.colorJoin, Graphics.COLOR_TRANSPARENT);
-			dc.drawText(cw, ch - (0.5 * fh), T.fontTimeText, WatchUi.loadResource(repr.textMiddle), Graphics.TEXT_JUSTIFY_CENTER);
+			dc.drawText(cw, ch, T.fontTimeText, WatchUi.loadResource(repr.textMiddle), justify);
 		}
 		
 		dc.setColor(repr.hourOnTp? T.colorMinute : T.colorHour, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(cw, ch - (0.0 * fh), T.fontTimeText, WatchUi.loadResource(repr.textBottom), Graphics.TEXT_JUSTIFY_CENTER);
+		dc.drawText(cw, ch + (0.5 * fh), T.fontTimeText, WatchUi.loadResource(repr.textBottom), justify);
 
 		// fh = Toybox.Graphics.getFontHeight(T.fontTimeMinutes);
 		var hour = WatchUi.loadResource(repr.hourOnTp? repr.textBottom : repr.textTop);
 		var shift = dc.getTextWidthInPixels(hour, T.fontTimeText) / 2;
+		var shiftloc = dc.getTextWidthInPixels("0", T.fontTimeMinutes);
 		dc.setColor(T.colorMinute, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(cw + shift, ch - (0.5 * fh), T.fontTimeMinutes, ":" + repr.minute.format("%02d"), Graphics.TEXT_JUSTIFY_LEFT);
+		dc.drawText(cw - shift + shiftloc, ch - (1.0 * fh), T.fontTimeMinutes, ":" + repr.minute.format("%02d"), Graphics.TEXT_JUSTIFY_CENTER + Graphics.TEXT_JUSTIFY_VCENTER);
 	}
 
 	function setColors(dc) {
