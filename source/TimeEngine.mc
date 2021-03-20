@@ -27,20 +27,20 @@ class TimeEngine {
 
         if (repr.minute < 5) {
             repr.hourOnTop = true;
-            repr.textTop =  hourMap[hour];
+            repr.textTop =  hourMap[repr.hour];
             repr.textBottom =  Rez.Strings.exact;
         } else if (repr.minute >= 5 && repr.minute < 10) {
             repr.textTop = Rez.Strings.near;
             repr.textMiddle = Rez.Strings.past;
-            repr.textBottom = hourMap[hour];
+            repr.textBottom = hourMap[repr.hour];
         } else if (repr.minute >= 10 && repr.minute <= 20) {
             repr.textTop = Rez.Strings.quarter;
             repr.textMiddle = Rez.Strings.past;
-            repr.textBottom = hourMap[hour];
+            repr.textBottom = hourMap[repr.hour];
         } else if (repr.minute > 20 && repr.minute < 40) {
             repr.textTop = Rez.Strings.half;
             repr.textMiddle = Rez.Strings.past;
-            repr.textBottom = hourMap[hour];
+            repr.textBottom = hourMap[repr.hour];
         } else if (repr.minute >= 40 && repr.minute <= 50) {
             repr.textTop = Rez.Strings.quarter;
             repr.textMiddle = Rez.Strings.to;
