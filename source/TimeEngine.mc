@@ -6,6 +6,7 @@ class TimeEngine {
     protected function timeRepr() {
         var repr = new TimeRepresentation();
         repr.hourOnTop = false;
+        repr.hourCase = 0;
 
         var now = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
         repr.hour = now.hour;
