@@ -61,8 +61,6 @@ class WatchFace extends WatchUi.WatchFace {
 		dc.setColor(repr.hourOnTop? T.colorMinute : T.colorHour, Graphics.COLOR_TRANSPARENT);
 		dc.drawText(cw, ch + (0.5 * fh), T.fontTimeText, repr.textBottom, justify);
 
-		// fh = Toybox.Graphics.getFontHeight(T.fontTimeMinutes);
-		// var shiftloc = 0;//dc.getTextWidthInPixels("00", T.fontTimeMinutes);
 		var text = repr.hourOnTop? repr.textBottom : repr.textTop;
 		var shift = dc.getTextWidthInPixels(text, T.fontTimeText) / 2;
 		dc.setColor(T.colorMinute, Graphics.COLOR_TRANSPARENT);
