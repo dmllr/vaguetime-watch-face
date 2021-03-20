@@ -1,6 +1,11 @@
 using Toybox.WatchUi;
 
 class TimeEngineRus extends TimeEngine {
+
+    function initialize() {
+        TimeEngine.initialize();
+    }
+
     function time() {
         var repr = timeRepr();
 
