@@ -50,21 +50,28 @@ class WatchFace extends WatchUi.WatchFace {
 
 		var repr = timeEngine.time();
 
-		dc.setColor(repr.hourOnTop? T.colorHour : T.colorMinute, Graphics.COLOR_TRANSPARENT);
+		setColor(dc, repr.hourOnTop? T.colorHour : T.colorMinute);
 		dc.drawText(cw, ch - (0.5 * fh), T.fontTimeText, repr.textTop, justify);
 		
 		if (repr.textMiddle) {
-			dc.setColor(T.colorJoin, Graphics.COLOR_TRANSPARENT);
+			setColor(dc, T.colorJoin);
 			dc.drawText(cw, ch, T.fontTimeText, repr.textMiddle, justify);
 		}
 		
-		dc.setColor(repr.hourOnTop? T.colorMinute : T.colorHour, Graphics.COLOR_TRANSPARENT);
+		setColor(dc, repr.hourOnTop? T.colorMinute : T.colorHour);
 		dc.drawText(cw, ch + (0.5 * fh), T.fontTimeText, repr.textBottom, justify);
 
 		var text = repr.hourOnTop? repr.textBottom : repr.textTop;
 		var shift = dc.getTextWidthInPixels(text, T.fontTimeText) / 2;
-		dc.setColor(T.colorMinute, Graphics.COLOR_TRANSPARENT);
+		setColor(dc, T.colorMinute);
 		dc.drawText(cw + shift, ch - (1.25 * fh), T.fontTimeMinutes, ":" + repr.minute.format("%02d"), Graphics.TEXT_JUSTIFY_RIGHT + Graphics.TEXT_JUSTIFY_VCENTER);
+	}
+
+	function setColor(dc, color) {
+		if (in_sleep) {
+			return;
+		}
+		dc.setColor(color, Graphics.COLOR_TRANSPARENT);
 	}
 
 	function setColors(dc) {
@@ -74,10 +81,8 @@ class WatchFace extends WatchUi.WatchFace {
    			dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
 		} else {
 			var bgColor = Graphics.COLOR_BLACK; //Application.getApp().getProperty("BackgroundColor");
-			var fgColor = Graphics.COLOR_WHITE; //Application.getApp().getProperty("ForegroundColor");
 			dc.setColor(Graphics.COLOR_TRANSPARENT, bgColor);
 			dc.clear();
-			dc.setColor(fgColor, Graphics.COLOR_TRANSPARENT);
 		}
 	}
 	
