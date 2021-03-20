@@ -2,6 +2,7 @@
 
     <font id="fontTimeText" filename="Geometr/Geometr.fnt" antialias="true"/>
     <font id="fontDateText" filename="Geometr18/Geometr18.fnt" antialias="true"/>
+    <font id="fontBatteryText" filename="Geometr18/Geometr18.fnt" antialias="true"/>
     <font id="fontTimeMinutes" filename="Digital/Digital.fnt" antialias="true"/>
     
 </resources>

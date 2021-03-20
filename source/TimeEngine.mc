@@ -16,6 +16,8 @@ class TimeEngine {
         }
 
         repr.date = WatchUi.loadResource(monthMap[now.month]) + " " + now.day + ", " + WatchUi.loadResource(dowMap[now.day_of_week]);
+
+        repr.battery = System.getSystemStats().battery.format("%d") + "%";
         
         return repr;
     }

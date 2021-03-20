@@ -5,6 +5,7 @@ class Theme {
 	var fontDateText;
 	var fontTimeText;
 	var fontTimeMinutes;
+	var fontBatteryText;
 	
     var colorHour;
     var colorMinute;
@@ -16,6 +17,7 @@ class Theme {
         fontDateText = WatchUi.loadResource(Rez.Fonts.fontDateText);
         fontTimeText = WatchUi.loadResource(Rez.Fonts.fontTimeText);
         fontTimeMinutes = WatchUi.loadResource(Rez.Fonts.fontTimeMinutes);
+        fontBatteryText = WatchUi.loadResource(Rez.Fonts.fontBatteryText);
 
         // Application.getApp().getProperty("ForegroundColor");
         colorMinute = Graphics.COLOR_YELLOW;

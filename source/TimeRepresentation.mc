@@ -6,6 +6,8 @@ class TimeRepresentation {
 
     var date;
 
+    var battery;
+
     var textTop;
     var textMiddle;
     var textBottom;
