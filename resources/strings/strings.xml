@@ -37,5 +37,25 @@
     <string id="hour_24">midnight</string>
     <string id="hour_0">midnight</string>
 
+    <string id="dow_1">sun</string>
+    <string id="dow_2">mon</string>
+    <string id="dow_3">tue</string>
+    <string id="dow_4">wed</string>
+    <string id="dow_5">thu</string>
+    <string id="dow_6">fri</string>
+    <string id="dow_7">sat</string>
     
+    <string id="mon_1">jan</string>
+    <string id="mon_2">feb</string>
+    <string id="mon_3">mar</string>
+    <string id="mon_4">apr</string>
+    <string id="mon_5">may</string>
+    <string id="mon_6">jun</string>
+    <string id="mon_7">jul</string>
+    <string id="mon_8">aug</string>
+    <string id="mon_9">sep</string>
+    <string id="mon_10">oct</string>
+    <string id="mon_11">now</string>
+    <string id="mon_12">dec</string>
+
 </strings>

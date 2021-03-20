@@ -37,4 +37,25 @@
     <string id="hour_24">полночь|двенадцатого</string>
     <string id="hour_0">полночь|двенадцатого</string>
     
+    <string id="dow_1">вс</string>
+    <string id="dow_2">пн</string>
+    <string id="dow_3">вт</string>
+    <string id="dow_4">ср</string>
+    <string id="dow_5">чт</string>
+    <string id="dow_6">пт</string>
+    <string id="dow_7">сб</string>
+    
+    <string id="mon_1">янв</string>
+    <string id="mon_2">фев</string>
+    <string id="mon_3">мар</string>
+    <string id="mon_4">апр</string>
+    <string id="mon_5">май</string>
+    <string id="mon_6">июн</string>
+    <string id="mon_7">июл</string>
+    <string id="mon_8">авг</string>
+    <string id="mon_9">сен</string>
+    <string id="mon_10">окт</string>
+    <string id="mon_11">ноя</string>
+    <string id="mon_12">дек</string>
+
 </strings>

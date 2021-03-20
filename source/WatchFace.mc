@@ -50,6 +50,9 @@ class WatchFace extends WatchUi.WatchFace {
 
 		var repr = timeEngine.time();
 
+		setColor(dc, T.colorDate);
+		dc.drawText(cw, ch - (2 * fh), T.fontDateText, repr.date, justify);
+		
 		setColor(dc, repr.hourOnTop? T.colorHour : T.colorMinute);
 		dc.drawText(cw, ch - (0.5 * fh), T.fontTimeText, repr.textTop, justify);
 		

@@ -15,6 +15,8 @@ class TimeEngine {
             repr.nextHour = 0;
         }
 
+        repr.date = WatchUi.loadResource(monthMap[now.month]) + " " + now.day + ", " + WatchUi.loadResource(dowMap[now.day_of_week]);
+        
         return repr;
     }
 
@@ -95,4 +97,29 @@ const hourMap = {
     23 => Rez.Strings.hour_23,
     24 => Rez.Strings.hour_24,
     0 => Rez.Strings.hour_0,
+};
+
+const dowMap = {
+    1 => Rez.Strings.dow_1,
+    2 => Rez.Strings.dow_2,
+    3 => Rez.Strings.dow_3,
+    4 => Rez.Strings.dow_4,
+    5 => Rez.Strings.dow_5,
+    6 => Rez.Strings.dow_6,
+    7 => Rez.Strings.dow_7,
+};
+
+const monthMap = {
+    1 => Rez.Strings.mon_1,
+    2 => Rez.Strings.mon_2,
+    3 => Rez.Strings.mon_3,
+    4 => Rez.Strings.mon_4,
+    5 => Rez.Strings.mon_5,
+    6 => Rez.Strings.mon_6,
+    7 => Rez.Strings.mon_7,
+    8 => Rez.Strings.mon_8,
+    9 => Rez.Strings.mon_9,
+    10 => Rez.Strings.mon_10,
+    11 => Rez.Strings.mon_11,
+    12 => Rez.Strings.mon_12,
 };

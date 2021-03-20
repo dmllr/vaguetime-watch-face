@@ -10,6 +10,7 @@ class Theme {
     var colorMinute;
     var colorJoin;
     var colorExactMinute;
+    var colorDate;
 
     function initialize() {
         fontDateText = WatchUi.loadResource(Rez.Fonts.fontDateText);
@@ -21,6 +22,7 @@ class Theme {
         colorHour = Graphics.COLOR_WHITE;
         colorJoin = Graphics.COLOR_DK_GRAY;
         colorExactMinute = Graphics.COLOR_BLUE;
+        colorDate = Graphics.COLOR_DK_GRAY;
     }
 
 }
