@@ -45,16 +45,20 @@ class WatchFace extends WatchUi.WatchFace {
 
 		var cw = System.getDeviceSettings().screenWidth  / 2;
 		var ch = System.getDeviceSettings().screenHeight / 2;
-		var fh = Toybox.Graphics.getFontHeight(T.fontTimeText);
 		var justify = Graphics.TEXT_JUSTIFY_CENTER + Graphics.TEXT_JUSTIFY_VCENTER;
+		var fh;
 
 		var repr = timeEngine.time();
 
+		fh = Toybox.Graphics.getFontHeight(T.fontDateText);
 		setColor(dc, T.colorDate);
-		dc.drawText(cw, ch - (2 * fh), T.fontDateText, repr.date, justify);
+		dc.drawText(cw, (1.2 * fh), T.fontDateText, repr.date, justify);
 
+		fh = Toybox.Graphics.getFontHeight(T.fontBatteryText);
 		setColor(dc, T.colorDate);
-		dc.drawText(cw, ch + (2 * fh), T.fontBatteryText, repr.battery, justify);
+		dc.drawText(cw, 2 * ch - (1.2 * fh), T.fontBatteryText, repr.battery, justify);
+
+		fh = Toybox.Graphics.getFontHeight(T.fontTimeText);
 
 		setColor(dc, repr.hourOnTop? T.colorHour : T.colorMinute);
 		dc.drawText(cw, ch - (0.5 * fh), T.fontTimeText, repr.textTop, justify);
