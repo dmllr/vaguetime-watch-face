@@ -49,40 +49,35 @@ class WatchFace extends WatchUi.WatchFace {
 		var justify = Graphics.TEXT_JUSTIFY_CENTER + Graphics.TEXT_JUSTIFY_VCENTER;
 
 		var repr = timeEngine.time();
-		var text;
 
-		text = revealCase(WatchUi.loadResource(repr.textTop), repr);
-		dc.setColor(repr.hourOnTop? T.colorHour : T.colorMinute, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(cw, ch - (0.5 * fh), T.fontTimeText, text, justify);
+		setColor(dc, T.colorDate);
+		dc.drawText(cw, ch - (2 * fh), T.fontDateText, repr.date, justify);
+
+		setColor(dc, T.colorDate);
+		dc.drawText(cw, ch + (2 * fh), T.fontBatteryText, repr.battery, justify);
+
+		setColor(dc, repr.hourOnTop? T.colorHour : T.colorMinute);
+		dc.drawText(cw, ch - (0.5 * fh), T.fontTimeText, repr.textTop, justify);
 		
 		if (repr.textMiddle) {
-			dc.setColor(T.colorJoin, Graphics.COLOR_TRANSPARENT);
-			dc.drawText(cw, ch, T.fontTimeText, WatchUi.loadResource(repr.textMiddle), justify);
+			setColor(dc, T.colorJoin);
+			dc.drawText(cw, ch, T.fontTimeText, repr.textMiddle, justify);
 		}
 		
-		text = revealCase(WatchUi.loadResource(repr.textBottom), repr);
-		dc.setColor(repr.hourOnTop? T.colorMinute : T.colorHour, Graphics.COLOR_TRANSPARENT);
-		dc.drawText(cw, ch + (0.5 * fh), T.fontTimeText, text, justify);
+		setColor(dc, repr.hourOnTop? T.colorMinute : T.colorHour);
+		dc.drawText(cw, ch + (0.5 * fh), T.fontTimeText, repr.textBottom, justify);
 
-		// fh = Toybox.Graphics.getFontHeight(T.fontTimeMinutes);
-		// var shiftloc = 0;//dc.getTextWidthInPixels("00", T.fontTimeMinutes);
-		var hour = revealCase(WatchUi.loadResource(repr.hourOnTop? repr.textBottom : repr.textTop), repr);
-		var shift = dc.getTextWidthInPixels(hour, T.fontTimeText) / 2;
-		dc.setColor(T.colorMinute, Graphics.COLOR_TRANSPARENT);
+		var text = repr.hourOnTop? repr.textBottom : repr.textTop;
+		var shift = dc.getTextWidthInPixels(text, T.fontTimeText) / 2;
+		setColor(dc, T.colorMinute);
 		dc.drawText(cw + shift, ch - (1.25 * fh), T.fontTimeMinutes, ":" + repr.minute.format("%02d"), Graphics.TEXT_JUSTIFY_RIGHT + Graphics.TEXT_JUSTIFY_VCENTER);
 	}
 
-	function revealCase(text, repr) {
-		var splitter = text.find("|");
-		if (splitter) {
-			if (repr.hourCase == 0) {
-				text = text.substring(0, splitter);
-			} else {
-				text = text.substring(splitter + 1, text.length());
-			}
+	function setColor(dc, color) {
+		if (in_sleep) {
+			return;
 		}
-		
-		return text;
+		dc.setColor(color, Graphics.COLOR_TRANSPARENT);
 	}
 
 	function setColors(dc) {
@@ -92,10 +87,8 @@ class WatchFace extends WatchUi.WatchFace {
    			dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
 		} else {
 			var bgColor = Graphics.COLOR_BLACK; //Application.getApp().getProperty("BackgroundColor");
-			var fgColor = Graphics.COLOR_WHITE; //Application.getApp().getProperty("ForegroundColor");
 			dc.setColor(Graphics.COLOR_TRANSPARENT, bgColor);
 			dc.clear();
-			dc.setColor(fgColor, Graphics.COLOR_TRANSPARENT);
 		}
 	}
 	
