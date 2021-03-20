@@ -1,12 +1,13 @@
 <strings>
     <string id="AppName">Hela Watch</string>
     
-    <string id="some">few minutes</string>
+    <string id="exact">o\'clock</string>
+    <string id="near">few minutes</string>
     <string id="quarter">quarter</string>
     <string id="half">half</string>
+    <string id="quarterbefore">-</string>
     <string id="about">about</string>
 
-    <string id="exact">o\'clock</string>
     <string id="past">past</string>
     <string id="to">to</string>
 
