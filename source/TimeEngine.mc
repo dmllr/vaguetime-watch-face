@@ -1,46 +1,52 @@
 using Toybox.WatchUi;
+using Toybox.Time.Gregorian;
+
 
 class TimeEngine {
-    function time() {
-        var time = System.getClockTime();
-        var hour = time.hour;
-        var minute = time.min;
-        var nextHour = hour + 1;
-        if (nextHour > 23) {
-            nextHour = 0;
-        }
-
+    protected function timeRepr() {
         var repr = new TimeRepresentation();
-        repr.hour = hour;
-        repr.minute = minute;
         repr.hourOnTop = false;
 
-        if (minute < 5) {
+        var now = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
+        repr.hour = now.hour;
+        repr.minute = now.min;
+        repr.nextHour = repr.hour + 1;
+        if (repr.nextHour > 23) {
+            repr.nextHour = 0;
+        }
+
+        return repr;
+    }
+
+    function time() {
+        var repr = timeRepr();
+
+        if (repr.minute < 5) {
             repr.hourOnTop = true;
             repr.textTop =  hourMap[hour];
             repr.textBottom =  Rez.Strings.exact;
-        } else if (minute >= 5 && minute < 10) {
+        } else if (repr.minute >= 5 && repr.minute < 10) {
             repr.textTop = Rez.Strings.near;
             repr.textMiddle = Rez.Strings.past;
             repr.textBottom = hourMap[hour];
-        } else if (minute >= 10 && minute <= 20) {
+        } else if (repr.minute >= 10 && repr.minute <= 20) {
             repr.textTop = Rez.Strings.quarter;
             repr.textMiddle = Rez.Strings.past;
             repr.textBottom = hourMap[hour];
-        } else if (minute > 20 && minute < 40) {
+        } else if (repr.minute > 20 && repr.minute < 40) {
             repr.textTop = Rez.Strings.half;
             repr.textMiddle = Rez.Strings.past;
             repr.textBottom = hourMap[hour];
-        } else if (minute >= 40 && minute <= 50) {
+        } else if (repr.minute >= 40 && repr.minute <= 50) {
             repr.textTop = Rez.Strings.quarter;
             repr.textMiddle = Rez.Strings.to;
-            repr.textBottom = hourMap[nextHour];
-        } else if (minute > 50 && minute <= 55) {
+            repr.textBottom = hourMap[repr.nextHour];
+        } else if (repr.minute > 50 && repr.minute <= 55) {
             repr.textTop = Rez.Strings.about;
-            repr.textBottom = hourMap[nextHour];
-        } else if (minute > 55) {
+            repr.textBottom = hourMap[repr.nextHour];
+        } else if (repr.minute > 55) {
             repr.hourOnTop = true;
-            repr.textTop = hourMap[nextHour];
+            repr.textTop = hourMap[repr.nextHour];
             repr.textBottom =  Rez.Strings.exact;
         }
 

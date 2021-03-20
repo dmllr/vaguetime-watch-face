@@ -2,6 +2,7 @@ using Toybox.WatchUi;
 
 class Theme {
 	
+	var fontDateText;
 	var fontTimeText;
 	var fontTimeMinutes;
 	
@@ -11,6 +12,7 @@ class Theme {
     var colorExactMinute;
 
     function initialize() {
+        fontDateText = WatchUi.loadResource(Rez.Fonts.fontDateText);
         fontTimeText = WatchUi.loadResource(Rez.Fonts.fontTimeText);
         fontTimeMinutes = WatchUi.loadResource(Rez.Fonts.fontTimeMinutes);
 
