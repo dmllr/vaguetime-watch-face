@@ -44,7 +44,21 @@ class TimeEngine {
             repr.textBottom =  Rez.Strings.exact;
         }
 
+        resolveResources(repr);
+
         return repr;
+    }
+
+    function resolveResources(repr) {
+        if (repr.textTop) {
+            repr.textTop = WatchUi.loadResource(repr.textTop);
+        }
+        if (repr.textMiddle) {
+            repr.textMiddle = WatchUi.loadResource(repr.textMiddle);
+        }
+        if (repr.textBottom) {
+            repr.textBottom = WatchUi.loadResource(repr.textBottom);
+        }
     }
 
 }

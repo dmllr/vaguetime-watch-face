@@ -1,6 +1,6 @@
 using Toybox.WatchUi;
 
-class TimeEngineRus {
+class TimeEngineRus extends TimeEngine {
     function time() {
         var time = System.getClockTime();
         var hour = time.hour;
@@ -42,7 +42,30 @@ class TimeEngineRus {
             repr.textBottom = hourMap[nextHour];
         }
 
+        resolveResources(repr);
+
         return repr;
     }
 
+    function resolveResources(repr) {
+        if (repr.textTop) {
+            repr.textTop = revealCase(WatchUi.loadResource(repr.textTop), repr);
+        }
+        if (repr.textBottom) {
+            repr.textBottom = revealCase(WatchUi.loadResource(repr.textBottom), repr);
+        }
+    }
+
+    static function revealCase(text, repr) {
+        var splitter = text.find("|");
+        if (splitter) {
+            if (repr.hourCase == 0) {
+                text = text.substring(0, splitter);
+            } else {
+                text = text.substring(splitter + 1, text.length());
+            }
+        }
+        
+        return text;
+    }
 }
