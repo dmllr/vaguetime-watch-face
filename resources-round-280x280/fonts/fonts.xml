@@ -1,0 +1,8 @@
+<resources>
+
+    <font id="fontTimeText" filename="League/League.fnt" antialias="true"/>
+    <font id="fontDateText" filename="League24/League24.fnt" antialias="true"/>
+    <font id="fontBatteryText" filename="League24/League24.fnt" antialias="true"/>
+    <font id="fontTimeMinutes" filename="Digital/Digital.fnt" antialias="true"/>
+    
+</resources>
