@@ -1,7 +1,7 @@
 <strings>
     <string id="AppName">Hela Watch</string>
     
-    <string id="exact">o`clock</string>
+    <string id="exact">o'clock</string>
     <string id="near">few minutes</string>
     <string id="quarter">quarter</string>
     <string id="half">half</string>
