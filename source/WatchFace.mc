@@ -52,21 +52,21 @@ class WatchFace extends WatchUi.WatchFace {
 
 		fh = Toybox.Graphics.getFontHeight(T.fontDateText);
 		setColor(dc, T.colorDate);
-		dc.drawText(cw, (1.2 * fh), T.fontDateText, repr.date, justify);
+		dc.drawText(cw, (0.5 * fh), T.fontDateText, repr.date, justify);
 
 		fh = Toybox.Graphics.getFontHeight(T.fontBatteryText);
 		setColor(dc, T.colorDate);
-		dc.drawText(cw, 2 * ch - (1.2 * fh), T.fontBatteryText, repr.battery, justify);
+		dc.drawText(cw, 2 * ch - (0.5 * fh), T.fontBatteryText, repr.battery, justify);
 
 		fh = Toybox.Graphics.getFontHeight(T.fontTimeText);
 
-		setColor(dc, repr.hourOnTop? T.colorHour : T.colorMinute);
-		dc.drawText(cw, ch - (0.5 * fh), T.fontTimeText, repr.textTop, justify);
-		
 		if (repr.textMiddle) {
 			setColor(dc, T.colorJoin);
 			dc.drawText(cw, ch, T.fontTimeText, repr.textMiddle, justify);
 		}
+		
+		setColor(dc, repr.hourOnTop? T.colorHour : T.colorMinute);
+		dc.drawText(cw, ch - (0.5 * fh), T.fontTimeText, repr.textTop, justify);
 		
 		setColor(dc, repr.hourOnTop? T.colorMinute : T.colorHour);
 		dc.drawText(cw, ch + (0.5 * fh), T.fontTimeText, repr.textBottom, justify);
@@ -74,7 +74,7 @@ class WatchFace extends WatchUi.WatchFace {
 		var text = repr.hourOnTop? repr.textBottom : repr.textTop;
 		var shift = dc.getTextWidthInPixels(text, T.fontTimeText) / 2;
 		setColor(dc, T.colorMinute);
-		dc.drawText(cw + shift, ch - (1.25 * fh), T.fontTimeMinutes, ":" + repr.minute.format("%02d"), Graphics.TEXT_JUSTIFY_RIGHT + Graphics.TEXT_JUSTIFY_VCENTER);
+		dc.drawText(cw + shift, ch - (1.1 * fh), T.fontTimeMinutes, ":" + repr.minute.format("%02d"), Graphics.TEXT_JUSTIFY_RIGHT + Graphics.TEXT_JUSTIFY_VCENTER);
 	}
 
 	function setColor(dc, color) {
