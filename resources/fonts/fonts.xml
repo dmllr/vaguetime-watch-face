@@ -1,0 +1,17 @@
+<resources>
+
+    <font id="font24" filename="L24/L24.fnt" antialias="true"/>
+    <font id="font26" filename="L26/L26.fnt" antialias="true"/>
+    <font id="font36" filename="L36/L36.fnt" antialias="true"/>
+    <font id="font44" filename="L44/L44.fnt" antialias="true"/>
+    <font id="font48" filename="L48/L48.fnt" antialias="true"/>
+    <font id="font52" filename="L52/L52.fnt" antialias="true"/>
+    <font id="font64" filename="L64/L64.fnt" antialias="true"/>
+    <font id="font72" filename="L72/L72.fnt" antialias="true"/>
+    <font id="font88" filename="L88/L88.fnt" antialias="true"/>
+    <font id="font105" filename="L105/L105.fnt" antialias="true"/>
+    <font id="font120" filename="L120/L120.fnt" antialias="true"/>
+
+    <font id="fontTimeMinutes" filename="Digital/Digital.fnt" antialias="true"/>
+
+</resources>
