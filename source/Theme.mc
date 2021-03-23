@@ -10,7 +10,7 @@ class Theme {
     var colorMinute;
     var colorJoin;
     var colorExactMinute;
-    var colorDate;
+    var colorApx;
 
     var screenWidth;
 	var cachedFontTimeText;
@@ -39,9 +39,9 @@ class Theme {
         // Application.getApp().getProperty("ForegroundColor");
         colorMinute = Graphics.COLOR_YELLOW;
         colorHour = Graphics.COLOR_WHITE;
-        colorJoin = Graphics.COLOR_DK_GRAY;
-        colorExactMinute = Graphics.COLOR_BLUE;
-        colorDate = Graphics.COLOR_DK_GRAY;
+        colorJoin = 0xafafaf; //Graphics.COLOR_LT_GRAY - 0x202020; //colorMinute - 0x50505000;
+        colorExactMinute = colorMinute;
+        colorApx = colorJoin;
     }
 
     function updateFontCache(dc, repr) {

@@ -52,10 +52,10 @@ class WatchFace extends WatchUi.WatchFace {
 
 		var font = T.getFontApx(dc, repr);
 		fh = Toybox.Graphics.getFontHeight(font);
-		setColor(dc, T.colorDate);
+		setColor(dc, T.colorApx);
 		dc.drawText(cw, (0.5 * fh), font, repr.date, justify);
 
-		setColor(dc, T.colorDate);
+		setColor(dc, T.colorApx);
 		dc.drawText(cw, 2 * ch - (0.5 * fh), font, repr.battery, justify);
 
 		font = T.getFontForTimeText(dc, repr);
@@ -75,7 +75,7 @@ class WatchFace extends WatchUi.WatchFace {
 
 		var text = repr.hourOnTop? repr.textBottom : repr.textTop;
 		var shift = dc.getTextWidthInPixels(text, font) / 2;
-		setColor(dc, T.colorMinute);
+		setColor(dc, T.colorExactMinute);
 		dc.drawText(cw + shift, ch - fh - 6, T.fontTimeMinutes, ":" + repr.minute.format("%02d"), Graphics.TEXT_JUSTIFY_RIGHT + Graphics.TEXT_JUSTIFY_VCENTER);
 	}
 

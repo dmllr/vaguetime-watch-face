@@ -11,6 +11,7 @@ class TimeEngine {
         var now = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
         repr.hour = now.hour;
         repr.minute = now.min;
+
         repr.nextHour = repr.hour + 1;
         if (repr.nextHour > 23) {
             repr.nextHour = 0;
