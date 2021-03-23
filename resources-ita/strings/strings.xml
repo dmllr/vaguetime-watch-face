@@ -1,0 +1,61 @@
+<strings>
+    <string id="AppName">Hela Watch</string>
+    
+    <string id="exact">in punto</string>
+    <string id="near">pochi minuti</string>
+    <string id="quarter">un quarto</string>
+    <string id="half">mezza</string>
+    <string id="quarterbefore">meno un quarto</string>
+    <string id="about">circa</string>
+
+    <string id="past">dopo</string>
+    <string id="to">al</string>
+
+    <string id="hour_1">una</string>
+    <string id="hour_2">due</string>
+    <string id="hour_3">tre</string>
+    <string id="hour_4">quattro</string>
+    <string id="hour_5">cinque</string>
+    <string id="hour_6">sei</string>
+    <string id="hour_7">sette</string>
+    <string id="hour_8">otto</string>
+    <string id="hour_9">nove</string>
+    <string id="hour_10">dieci</string>
+    <string id="hour_11">undici</string>
+    <string id="hour_12">mezzogiorno</string>
+    <string id="hour_13">una</string>
+    <string id="hour_14">due</string>
+    <string id="hour_15">tre</string>
+    <string id="hour_16">quattro</string>
+    <string id="hour_17">cinque</string>
+    <string id="hour_18">sei</string>
+    <string id="hour_19">sette</string>
+    <string id="hour_20">otto</string>
+    <string id="hour_21">nove</string>
+    <string id="hour_22">dieci</string>
+    <string id="hour_23">undici</string>
+    <string id="hour_24">mezzanotte</string>
+    <string id="hour_0">mezzanotte</string>
+
+    <string id="dow_1">dom</string>
+    <string id="dow_2">lun</string>
+    <string id="dow_3">mar</string>
+    <string id="dow_4">mer</string>
+    <string id="dow_5">gio</string>
+    <string id="dow_6">ven</string>
+    <string id="dow_7">sab</string>
+    
+    <string id="mon_1">gen</string>
+    <string id="mon_2">feb</string>
+    <string id="mon_3">mar</string>
+    <string id="mon_4">apr</string>
+    <string id="mon_5">mag</string>
+    <string id="mon_6">giu</string>
+    <string id="mon_7">lug</string>
+    <string id="mon_8">aug</string>
+    <string id="mon_9">set</string>
+    <string id="mon_10">ott</string>
+    <string id="mon_11">nov</string>
+    <string id="mon_12">dic</string>
+
+</strings>
