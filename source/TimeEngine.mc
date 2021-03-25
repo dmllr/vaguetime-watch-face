@@ -19,7 +19,9 @@ class TimeEngine {
 
         repr.date = WatchUi.loadResource(monthMap[now.month]) + " " + now.day + ", " + WatchUi.loadResource(dowMap[now.day_of_week]);
 
-        repr.battery = System.getSystemStats().battery.format("%d") + "%";
+        repr.battery = System.getSystemStats().battery.format("%d");
+        repr.phoneConnected = System.getDeviceSettings().phoneConnected;
+        repr.notificationCount = System.getDeviceSettings().notificationCount;
         
         return repr;
     }
