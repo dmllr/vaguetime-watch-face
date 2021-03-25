@@ -80,11 +80,11 @@ class Theme {
         }
         
         if (!fontTimeTextSet) {
-            cachedFontTimeText = fonts[fonts.size() - 1];
+            cachedFontTimeText = WatchUi.loadResource(fonts[fonts.size() - 1]);
             fontTimeTextSet = true;
         }
         if (!fontApxSet) {
-            cachedFontApx = fonts[fonts.size() - 1];
+            cachedFontApx = WatchUi.loadResource(fonts[fonts.size() - 1]);
             fontApxSet = true;
         }
     }
