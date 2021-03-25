@@ -3,24 +3,34 @@ using Toybox.Math;
 
 class Theme {
 	
-	var fontTimeMinutes;
     var fonts;
+	var fontTimeMinutes;
+	var fontIcons;
+	var fontTyny;
 	
     var colorHour;
     var colorMinute;
     var colorJoin;
     var colorExactMinute;
-    var colorDate;
+    var colorApx;
+    var colorWarning;
+    var colorInactive;
 
     var screenWidth;
 	var cachedFontTimeText;
 	var cachedFontApx;
 	var cachedFontKey = null;
 
+    const SYMBOL_BT_ON = "A";
+    const SYMBOL_BT_OFF = "a";
+    const SYMBOL_NOTIFICATIONS = "D";
+
     function initialize() {
         screenWidth = System.getDeviceSettings().screenWidth;
 
         fontTimeMinutes = WatchUi.loadResource(Rez.Fonts.fontTimeMinutes);
+        fontIcons = WatchUi.loadResource(Rez.Fonts.fontIcons);
+        fontTyny = WatchUi.loadResource(Rez.Fonts.font24);
 
         fonts = [
             Rez.Fonts.font120,
@@ -39,9 +49,11 @@ class Theme {
         // Application.getApp().getProperty("ForegroundColor");
         colorMinute = Graphics.COLOR_YELLOW;
         colorHour = Graphics.COLOR_WHITE;
-        colorJoin = Graphics.COLOR_DK_GRAY;
-        colorExactMinute = Graphics.COLOR_BLUE;
-        colorDate = Graphics.COLOR_DK_GRAY;
+        colorJoin = 0xafafaf; //Graphics.COLOR_LT_GRAY - 0x202020; //colorMinute - 0x50505000;
+        colorExactMinute = colorMinute;
+        colorApx = colorJoin;
+        colorWarning = Graphics.COLOR_ORANGE;
+        colorInactive = 0x1f1f1f;
     }
 
     function updateFontCache(dc, repr) {
@@ -61,18 +73,18 @@ class Theme {
             }
 
             l1 = dc.getTextWidthInPixels(repr.date, font);
-            if (!fontApxSet && l1 < 0.4 * screenWidth) {
+            if (!fontApxSet && l1 < 0.33 * screenWidth) {
                 cachedFontApx = font;
                 fontApxSet = true;
             }
         }
         
         if (!fontTimeTextSet) {
-            cachedFontTimeText = fonts[fonts.size() - 1];
+            cachedFontTimeText = WatchUi.loadResource(fonts[fonts.size() - 1]);
             fontTimeTextSet = true;
         }
         if (!fontApxSet) {
-            cachedFontApx = fonts[fonts.size() - 1];
+            cachedFontApx = WatchUi.loadResource(fonts[fonts.size() - 1]);
             fontApxSet = true;
         }
     }

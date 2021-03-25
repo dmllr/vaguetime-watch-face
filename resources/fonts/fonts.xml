@@ -14,4 +14,6 @@
 
     <font id="fontTimeMinutes" filename="Digital/Digital.fnt" antialias="true"/>
 
+    <font id="fontIcons" filename="Icons/Icons.fnt" antialias="true"/>
+
 </resources>

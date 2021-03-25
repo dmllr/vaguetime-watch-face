@@ -11,6 +11,7 @@ class TimeEngine {
         var now = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
         repr.hour = now.hour;
         repr.minute = now.min;
+
         repr.nextHour = repr.hour + 1;
         if (repr.nextHour > 23) {
             repr.nextHour = 0;
@@ -18,7 +19,9 @@ class TimeEngine {
 
         repr.date = WatchUi.loadResource(monthMap[now.month]) + " " + now.day + ", " + WatchUi.loadResource(dowMap[now.day_of_week]);
 
-        repr.battery = System.getSystemStats().battery.format("%d") + "%";
+        repr.battery = System.getSystemStats().battery.format("%d");
+        repr.phoneConnected = System.getDeviceSettings().phoneConnected;
+        repr.notificationCount = System.getDeviceSettings().notificationCount;
         
         return repr;
     }

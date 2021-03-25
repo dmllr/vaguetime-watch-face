@@ -7,6 +7,8 @@ class TimeRepresentation {
     var date;
 
     var battery;
+    var phoneConnected;
+    var notificationCount;
 
     var textTop;
     var textMiddle;
