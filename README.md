@@ -5,10 +5,9 @@
 |    |    |
 |:---------:|:---------:|
 ![](materials/screens/scr1.png)  |  ![](materials/screens/scr2.png)
-![](materials/screens/scr2.png)  |  ![](materials/screens/scr3.png)
-![](materials/screens/scr4.png)  |  ![](materials/screens/scr5.png)
-![](materials/screens/scr6.png)  |  ![](materials/screens/scr7.png)
-![](materials/screens/scr8.png)  |
+![](materials/screens/scr3.png)  |  ![](materials/screens/scr4.png)
+![](materials/screens/scr5.png)  |  ![](materials/screens/scr6.png)
+![](materials/screens/scr7.png)  |  ![](materials/screens/scr8.png)
 
 
 
